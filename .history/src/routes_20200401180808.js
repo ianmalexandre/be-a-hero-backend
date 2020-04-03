@@ -32,11 +32,7 @@ routes.get('/profile', celebrate({
 }), profileController.index);
 
 routes.post('/incidents', incidentController.create);
-routes.get('/incidents', celebrate({
-    [Segments.QUERY]: Joi.object().keys({
-        page: Joi.number(),
-    })
-}), incidentController.index);
+routes.get('/incidents', incidentController.index);
 routes.delete('/incidents/:id', celebrate({
     [Segments.PARAMS]: Joi.object().keys({
         id: Joi.number().required(),
